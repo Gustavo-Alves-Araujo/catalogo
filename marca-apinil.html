@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <title>Apinil – Triângulo</title>
-  <meta name="description" content="Produtos Apinil na Triângulo Distribuidora, Araguari MG."/>
+  <title>Apinil – Triângulo Distribuidora</title>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -11,230 +10,245 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui']}}}}</script>
 </head>
-<body class="font-sans antialiased" style="background:#f7f6f2;color:#1a1a14;overflow-x:hidden">
-
-<header id="hdr" class="fixed top-0 left-0 w-full z-50" style="background:rgba(255,255,255,.97);border-bottom:1px solid #e8e5de">
+<body style="background:#f7f6f2;color:#1a1a14;overflow-x:hidden;font-family:'Inter',sans-serif">
+<header id="site-hdr" class="fixed top-0 left-0 w-full z-50" style="background:rgba(255,255,255,.97);border-bottom:1px solid #e8e5de">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="flex items-center h-[68px] gap-4">
-
-      <a href="index.html" class="shrink-0">
-        <img src="logo.png" alt="Triângulo" class="h-9 w-auto"/>
+    <div class="flex items-center gap-4 h-[68px]">
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+        <img src="logo.png" alt="Triângulo Distribuidora" class="h-9 w-auto" onerror="this.style.display='none'"/>
+        <span class="font-bold text-base leading-tight hidden sm:block" style="color:#536028">Triângulo<br/><span class="font-normal text-xs" style="color:#7a7269">Distribuidora</span></span>
       </a>
-
-      <!-- search pill (desktop) -->
-      <form id="hdr-form" action="busca.html" class="hidden md:flex flex-1 max-w-sm items-center gap-2 rounded-full px-4 py-2.5 cursor-text" style="background:#f7f6f2;border:1.5px solid #e8e5de">
-        <span style="color:#7a7269"><svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg></span>
-        <input name="q" id="hdr-q" type="text" placeholder="Buscar produto..." autocomplete="off"
-               class="flex-1 text-[13px] bg-transparent outline-none min-w-0" style="color:#1a1a14"/>
-      </form>
-
-      <nav class="hidden md:flex items-center gap-0.5 ml-auto">
-        <a href="index.html#sobre"   class="snav px-3 py-1.5 rounded-lg text-[13px] font-medium" style="color:#7a7269;transition:color .15s,background .15s">Sobre</a>
-        <a href="index.html#marcas"  class="snav px-3 py-1.5 rounded-lg text-[13px] font-medium" style="color:#7a7269;transition:color .15s,background .15s">Marcas</a>
-        <a href="index.html#contato" class="snav px-3 py-1.5 rounded-lg text-[13px] font-medium" style="color:#7a7269;transition:color .15s,background .15s">Contato</a>
-      </nav>
-
-      <a href="https://wa.me/5534991783994" target="_blank" rel="noopener noreferrer"
-         class="hidden md:flex items-center gap-2 rounded-full px-5 py-2.5 text-[12.5px] font-bold text-white shrink-0"
-         style="background:#D4652E;transition:filter .15s"
-         onmouseenter="this.style.filter='brightness(1.1)'" onmouseleave="this.style.filter=''">
-        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir agora
-      </a>
-
-      <!-- mobile icons -->
-      <div class="flex items-center gap-1 ml-auto md:hidden">
-        <button id="mob-srh-btn" class="p-2 rounded-xl" style="color:#7a7269">
-          <svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
-        </button>
-        <button id="ham" class="p-2" aria-label="Menu" style="color:#1a1a14">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <form action="busca.html" method="get" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full flex-1 max-w-sm" style="background:#f7f6f2;border:1.5px solid #e8e5de">
+      <label for="q-hdr" class="sr-only">Buscar produtos</label>
+      <svg class="w-4 h-4 shrink-0" style="color:{MID}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="q-hdr" name="q" type="search" placeholder="Buscar produto..." class="flex-1 bg-transparent text-sm outline-none" style="color:#1a1a14"/>
+    </form>
+      <nav class="hidden md:flex items-center gap-6 ml-auto"><a href="#inicio" class="snav text-sm font-medium transition-colors duration-200 px-1 py-0.5 rounded" style="color:#7a7269" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#7a7269'">Início</a><a href="#sobre" class="snav text-sm font-medium transition-colors duration-200 px-1 py-0.5 rounded" style="color:#7a7269" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#7a7269'">Sobre</a><a href="#beneficios" class="snav text-sm font-medium transition-colors duration-200 px-1 py-0.5 rounded" style="color:#7a7269" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#7a7269'">Benefícios</a><a href="#marcas" class="snav text-sm font-medium transition-colors duration-200 px-1 py-0.5 rounded" style="color:#7a7269" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#7a7269'">Marcas</a><a href="#contato" class="snav text-sm font-medium transition-colors duration-200 px-1 py-0.5 rounded" style="color:#7a7269" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#7a7269'">Contato</a></nav>
+      <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tri%C3%A2ngulo%20Distribuidora%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener"
+         class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200"
+         style="background:#D4652E" onmouseover="this.style.background='#728035'" onmouseout="this.style.background='#D4652E'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> WhatsApp</a>
+      <div class="flex items-center gap-3 ml-auto md:hidden">
+        <button id="mob-srh-btn" aria-label="Buscar" style="color:#7a7269"><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+        <button id="mob-menu-btn" aria-label="Menu" style="color:#7a7269">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path id="mob-lines" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="mob-x" d="M6 18L18 6M6 6l12 12" class="hidden"/>
+          </svg>
         </button>
       </div>
     </div>
-
-    <!-- mobile search -->
-    <div id="mob-srh" class="hidden pb-3">
-      <form action="busca.html" class="flex items-center gap-2 rounded-full px-4 py-2.5" style="background:#f7f6f2;border:1.5px solid #e8e5de">
-        <span style="color:#7a7269"><svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg></span>
-        <input name="q" type="text" placeholder="Buscar produto..." autocomplete="off"
-               class="flex-1 text-[13.5px] bg-transparent outline-none min-w-0" style="color:#1a1a14"/>
+  </div>
+  <div id="mob-srh" class="hidden px-5 pb-3">
+      <form action="busca.html" method="get" class="flex items-center gap-2 px-4 py-2 rounded-full" style="background:#f7f6f2;border:1.5px solid #e8e5de">
+        <label for="q-mob" class="sr-only">Buscar produtos</label>
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input id="q-mob" name="q" type="search" placeholder="Buscar produto..." class="flex-1 bg-transparent text-sm outline-none" style="color:#1a1a14"/>
       </form>
     </div>
-  </div>
-
-  <!-- mobile nav -->
-  <div id="mob-menu" class="hidden" style="background:#ffffff;border-top:1px solid #e8e5de">
-    <div class="px-5 py-4 flex flex-col gap-0.5">
-      <a href="index.html#sobre"   class="mob-link rounded-xl px-4 py-3 text-[14px] font-medium" style="color:#1a1a14">Sobre</a>
-      <a href="index.html#marcas"  class="mob-link rounded-xl px-4 py-3 text-[14px] font-medium" style="color:#1a1a14">Marcas</a>
-      <a href="index.html#contato" class="mob-link rounded-xl px-4 py-3 text-[14px] font-medium" style="color:#1a1a14">Contato</a>
-      <a href="busca.html"     class="mob-link rounded-xl px-4 py-3 text-[14px] font-medium" style="color:#1a1a14">Buscar Produtos</a>
-      <a href="https://wa.me/5534991783994" target="_blank" class="flex items-center gap-2 rounded-xl px-4 py-3 mt-2 text-[14px] font-bold text-white" style="background:#D4652E"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir agora</a>
+  <div id="mob-menu" class="hidden md:hidden border-t" style="border-color:#e8e5de;background:#ffffff">
+    <a href="#inicio" class="block px-6 py-3 text-sm font-medium border-b" style="color:#1a1a14;border-color:#e8e5de">Início</a><a href="#sobre" class="block px-6 py-3 text-sm font-medium border-b" style="color:#1a1a14;border-color:#e8e5de">Sobre</a><a href="#beneficios" class="block px-6 py-3 text-sm font-medium border-b" style="color:#1a1a14;border-color:#e8e5de">Benefícios</a><a href="#marcas" class="block px-6 py-3 text-sm font-medium border-b" style="color:#1a1a14;border-color:#e8e5de">Marcas</a><a href="#contato" class="block px-6 py-3 text-sm font-medium border-b" style="color:#1a1a14;border-color:#e8e5de">Contato</a>
+    <div class="px-6 py-4">
+      <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tri%C3%A2ngulo%20Distribuidora%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener"
+         class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-white"
+         style="background:#D4652E"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Falar no WhatsApp</a>
     </div>
   </div>
 </header>
-
-<div style="padding-top:68px;background:#ffffff">
-  <div style="height:3px;background:linear-gradient(90deg,#728035,#D4652E)"></div>
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
-    <a href="index.html#marcas" class="inline-flex items-center gap-2 mb-7 text-[12.5px] font-semibold rounded-full px-4 py-2" style="color:#7a7269;background:#f7f6f2;border:1px solid #e8e5de;transition:color .15s,border-color .15s" onmouseenter="this.style.color='#728035';this.style.borderColor='#728035'" onmouseleave="this.style.color='#7a7269';this.style.borderColor='#e8e5de'">
-      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Todas as marcas
-    </a>
-    <div class="flex flex-col sm:flex-row sm:items-end gap-4">
-      <div class="flex-1">
-        <p class="text-[10.5px] font-bold tracking-[.2em] uppercase mb-2" style="color:#728035">Marca 01</p>
-        <h1 class="font-black leading-none" style="font-size:clamp(2.5rem,6vw,4.5rem);color:#1a1a14;letter-spacing:-.04em">Apinil</h1>
-      </div>
-      <div class="flex items-center gap-3">
-        <span class="text-[1.5rem] font-black" style="color:#728035;letter-spacing:-.03em">3</span>
-        <span class="text-[12px] font-semibold uppercase tracking-wide" style="color:#7a7269">produtos</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="sticky z-30" style="top:68px;background:#f7f6f2;border-bottom:1px solid #e8e5de">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-3 flex items-center gap-4">
-    <label class="flex items-center gap-2 rounded-full px-4 py-2.5 cursor-text" style="background:#ffffff;border:1.5px solid #e8e5de;flex:1;max-width:340px">
-      <span style="color:#7a7269"><svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg></span>
-      <input id="q" type="text" placeholder="Buscar nesta marca..." autocomplete="off" class="flex-1 text-[13px] bg-transparent outline-none min-w-0" style="color:#1a1a14"/>
-      <button id="clr" class="hidden shrink-0" style="color:#7a7269"><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/></svg></button>
-    </label>
-    <span class="text-[12px] hidden sm:block" style="color:#7a7269">1 com imagem &bull; 2 em breve</span>
-  </div>
-</div>
-
-<div id="empty" class="hidden flex-col items-center justify-center py-20 gap-3 px-6">
-  <svg class="w-8 h-8" style="color:#728035;opacity:.35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/></svg>
-  <p class="text-[14px] font-semibold" style="color:#7a7269">Nenhum resultado para <span id="emptyQ" style="color:#1a1a14"></span></p>
-</div>
-
-<div id="cat-main" class="max-w-7xl mx-auto px-5 sm:px-8 py-10 pb-24">
-  <div data-section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
-    <article data-card data-product="canela do veio" class="group flex flex-col bg-white rounded-2xl overflow-hidden" style="box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.06);opacity:0;translate:0 24px;transition:opacity .5s,translate .5s,box-shadow .2s,transform .2s">
-  <div class="p-2.5 pb-0"><div class="relative overflow-hidden rounded-[14px]" style="aspect-ratio:1;background:#f5f4f0"><img src="https://lh3.googleusercontent.com/d/1-TjpsWXB04MqhEGEXIjooevdG-AZ_421" alt="Canela do Veio" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain" style="padding:16px;transition:transform .45s cubic-bezier(.34,1.3,.64,1)"/></div></div>
-  <div class="flex flex-col flex-1 gap-2 px-3 pt-2.5 pb-3">
-    <p class="flex-1 text-[12.5px] font-semibold leading-snug line-clamp-2" style="color:#1a1a14;letter-spacing:-.01em">Canela do Veio</p>
-    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Canela%20do%20Veio" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 rounded-xl text-[11.5px] font-bold text-white" style="padding:7px 10px;background:#728035;transition:filter .15s" onmouseenter="this.style.filter='brightness(1.1)'" onmouseleave="this.style.filter=''"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir</a>
-  </div>
-</article>
-<article data-card data-product="cascavel" class="group flex flex-col bg-white rounded-2xl overflow-hidden" style="box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.06);opacity:0;translate:0 24px;transition:opacity .5s,translate .5s,box-shadow .2s,transform .2s">
-  <div class="p-2.5 pb-0"><div class="relative overflow-hidden rounded-[14px]" style="aspect-ratio:1;background:#f5f4f0"><div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5" style="color:#c8be9e"><svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9"><path d="M17 8C8 10 5.9 16.17 3.82 22H5.8c.36-.98.8-1.91 1.27-2.73C9 17 12 15 17 15c5 0 7-4 7-9-1 2.5-3 5-7 2z"/></svg><span class="text-[8px] font-bold tracking-widest uppercase">Em breve</span></div></div></div>
-  <div class="flex flex-col flex-1 gap-2 px-3 pt-2.5 pb-3">
-    <p class="flex-1 text-[12.5px] font-semibold leading-snug line-clamp-2" style="color:#1a1a14;letter-spacing:-.01em">Cascavel</p>
-    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Cascavel" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 rounded-xl text-[11.5px] font-bold text-white" style="padding:7px 10px;background:#728035;transition:filter .15s" onmouseenter="this.style.filter='brightness(1.1)'" onmouseleave="this.style.filter=''"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir</a>
-  </div>
-</article>
-<article data-card data-product="sucuri" class="group flex flex-col bg-white rounded-2xl overflow-hidden" style="box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.06);opacity:0;translate:0 24px;transition:opacity .5s,translate .5s,box-shadow .2s,transform .2s">
-  <div class="p-2.5 pb-0"><div class="relative overflow-hidden rounded-[14px]" style="aspect-ratio:1;background:#f5f4f0"><div class="absolute inset-0 flex flex-col items-center justify-center gap-1.5" style="color:#c8be9e"><svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9"><path d="M17 8C8 10 5.9 16.17 3.82 22H5.8c.36-.98.8-1.91 1.27-2.73C9 17 12 15 17 15c5 0 7-4 7-9-1 2.5-3 5-7 2z"/></svg><span class="text-[8px] font-bold tracking-widest uppercase">Em breve</span></div></div></div>
-  <div class="flex flex-col flex-1 gap-2 px-3 pt-2.5 pb-3">
-    <p class="flex-1 text-[12.5px] font-semibold leading-snug line-clamp-2" style="color:#1a1a14;letter-spacing:-.01em">Sucuri</p>
-    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Sucuri" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 rounded-xl text-[11.5px] font-bold text-white" style="padding:7px 10px;background:#728035;transition:filter .15s" onmouseenter="this.style.filter='brightness(1.1)'" onmouseleave="this.style.filter=''"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir</a>
-  </div>
-</article>
-  </div>
-</div>
-
-<footer style="background:#171712">
-  <div style="height:3px;background:linear-gradient(90deg,#728035,#D4652E,#728035)"></div>
-
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
-      <div class="sm:col-span-2 lg:col-span-1">
-        <img src="logo.png" alt="Triângulo" class="h-10 w-auto mb-4"/>
-        <p class="text-[13.5px] leading-relaxed mb-6" style="color:rgba(255,255,255,.38)">
-          Distribuidora de produtos naturais em Araguari, MG. Qualidade, variedade e atendimento personalizado.
-        </p>
-        <a href="https://wa.me/5534991783994" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold text-white"
-           style="background:#728035;transition:filter .15s"
-           onmouseenter="this.style.filter='brightness(1.1)'" onmouseleave="this.style.filter=''">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Falar no WhatsApp
-        </a>
-      </div>
-
-      <div>
-        <p class="text-[11px] font-bold tracking-[.18em] uppercase mb-5" style="color:#728035">Navegação</p>
-        <ul class="flex flex-col gap-3">
-          <li><a href="index.html#inicio"  class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Início</a></li>
-          <li><a href="index.html#sobre"   class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Sobre nós</a></li>
-          <li><a href="index.html#marcas"  class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Marcas</a></li>
-          <li><a href="index.html#contato" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Contato</a></li>
-          <li><a href="busca.html"     class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Buscar Produtos</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="text-[11px] font-bold tracking-[.18em] uppercase mb-5" style="color:#D4652E">Marcas em Destaque</p>
-        <ul class="flex flex-col gap-3">
-          <li><a href="marca-4-elementos.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">4 Elementos</a></li>
-<li><a href="marca-celliv-nutrac.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Celliv Nutrac</a></li>
-<li><a href="marca-bioklein.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Bioklein</a></li>
-<li><a href="marca-landerlabs-essencial-bio.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Landerlabs / Essencial Bio</a></li>
-<li><a href="marca-melfort.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">Melfort</a></li>
-<li><a href="marca-san-jully.html" class="text-[13px] transition-colors" style="color:rgba(255,255,255,.45)" onmouseenter="this.style.color='#728035'" onmouseleave="this.style.color='rgba(255,255,255,.45)'">San Jully</a></li>
-          <li><a href="index.html#marcas" class="inline-flex items-center gap-1 text-[13px] font-semibold transition-colors" style="color:#D4652E" onmouseenter="this.style.opacity='.7'" onmouseleave="this.style.opacity='1'">Ver todas <svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="text-[11px] font-bold tracking-[.18em] uppercase mb-5" style="color:#728035">Contato</p>
-        <div class="flex flex-col gap-4">
-          <div>
-            <p class="text-[11px] font-semibold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.25)">Endereço</p>
-            <p class="text-[13.5px]" style="color:rgba(255,255,255,.55)">Alameda Eugênio Nasciute, 85</p>
-            <p class="text-[13px]" style="color:rgba(255,255,255,.35)">Araguari – MG, CEP 38441-122</p>
+<main class="pt-[68px]">
+  <div class="py-10 sm:py-14" style="background:linear-gradient(135deg,#53602818,#f7f6f2)">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <a href="index.html#marcas" class="inline-flex items-center gap-2 text-sm font-medium mb-6 transition-colors duration-200"
+         style="color:#7a7269" onmouseover="this.style.color='#536028'" onmouseout="this.style.color='#7a7269'"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Todas as marcas</a>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-1 h-10 rounded-full" style="background:#536028"></div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028">Marca #03</span>
+              <h1 class="text-3xl sm:text-4xl font-black mt-0.5" style="color:#1a1a14">Apinil</h1>
+            </div>
           </div>
-          <div>
-            <p class="text-[11px] font-semibold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.25)">Celular</p>
-            <a href="https://wa.me/5534991783994" target="_blank" class="text-[13.5px] font-medium" style="color:rgba(255,255,255,.55);transition:color .15s" onmouseenter="this.style.color='#25D366'" onmouseleave="this.style.color='rgba(255,255,255,.55)'">(34) 99178-3994</a>
-          </div>
+          <p class="text-sm ml-5 pl-3" style="color:#7a7269">5 produtos disponíveis</p>
         </div>
+        <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20nos%20produtos%20da%20Apinil.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white transition-all duration-200 shrink-0"
+           style="background:#536028" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir desta marca</a>
       </div>
     </div>
-
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8" style="border-top:1px solid rgba(255,255,255,.07)">
-      <p class="text-[12px]" style="color:rgba(255,255,255,.2)">&copy; 2025 Triângulo Distribuidora de Produtos Naturais. Todos os direitos reservados.</p>
-      <div class="flex items-center gap-2 text-[12px]" style="color:rgba(255,255,255,.2)">
-        <span class="w-1.5 h-1.5 rounded-full" style="background:#728035"></span>
-        Araguari, Minas Gerais
+  </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 pb-20">
+    <div class="sticky top-[68px] z-40 pb-6 pt-2" style="background:#f7f6f2">
+      <div class="flex items-center gap-3 px-4 py-2.5 rounded-xl max-w-sm" style="background:#ffffff;border:1.5px solid #e8e5de">
+        <div style="color:#7a7269"><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <input id="q" type="search" placeholder="Filtrar produtos..." class="flex-1 bg-transparent text-sm outline-none" style="color:#1a1a14"/>
+        <button id="clr-btn" aria-label="Limpar" class="hidden" style="color:#7a7269"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
       </div>
+    </div>
+    <div data-brand-section>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4" id="prod-grid"><article data-card data-product="canela do veio" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 group" style="background:#ffffff;border:1.5px solid #e8e5de;opacity:0;transform:translateY(20px)">
+  <div class="relative overflow-hidden" style="height:180px;background:white">
+    <img src="https://lh3.googleusercontent.com/d/1-TjpsWXB04MqhEGEXIjooevdG-AZ_421" alt="Canela do Veio" loading="lazy" class="w-full h-full object-contain" style="padding:16px"/>
+  </div>
+  <div class="flex flex-col flex-1 p-4 gap-3">
+    <h3 class="text-sm font-semibold leading-snug flex-1" style="color:#1a1a14">Canela do Veio</h3>
+    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Canela%20do%20Veio.%20Podem%20me%20informar%20disponibilidade%20e%20pre%C3%A7o%3F" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+       style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir</a>
+  </div>
+</article><article data-card data-product="creme pés e mãos 190g sebo de carneiro" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 group" style="background:#f7f6f2;border:1.5px solid #e8e5de;opacity:0;transform:translateY(20px)">
+  <div class="relative overflow-hidden" style="height:180px;background:#e8e5de">
+    <div class="w-full h-full flex flex-col items-center justify-center gap-2" style="color:#e8e5de"><div style="color:#e8e5de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-dasharray="3 3"/><path d="M12 6c0 0-5 3.5-5 7a5 5 0 0010 0c0-3.5-5-7-5-7z"/><path d="M12 13v5"/></svg></div><span class="text-xs font-medium" style="color:#e8e5de">Em breve</span></div>
+  </div>
+  <div class="flex flex-col flex-1 p-4 gap-3">
+    <h3 class="text-sm font-semibold leading-snug flex-1" style="color:#1a1a14">Creme Pés e Mãos 190g Sebo de Carneiro</h3>
+    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Creme%20P%C3%A9s%20e%20M%C3%A3os%20190g%20Sebo%20de%20Carneiro.%20Podem%20me%20informar%20disponibilidade%20e%20pre%C3%A7o%3F" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+       style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir</a>
+  </div>
+</article><article data-card data-product="pomada abelha 240g" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 group" style="background:#f7f6f2;border:1.5px solid #e8e5de;opacity:0;transform:translateY(20px)">
+  <div class="relative overflow-hidden" style="height:180px;background:#e8e5de">
+    <div class="w-full h-full flex flex-col items-center justify-center gap-2" style="color:#e8e5de"><div style="color:#e8e5de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-dasharray="3 3"/><path d="M12 6c0 0-5 3.5-5 7a5 5 0 0010 0c0-3.5-5-7-5-7z"/><path d="M12 13v5"/></svg></div><span class="text-xs font-medium" style="color:#e8e5de">Em breve</span></div>
+  </div>
+  <div class="flex flex-col flex-1 p-4 gap-3">
+    <h3 class="text-sm font-semibold leading-snug flex-1" style="color:#1a1a14">Pomada Abelha 240g</h3>
+    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Pomada%20Abelha%20240g.%20Podem%20me%20informar%20disponibilidade%20e%20pre%C3%A7o%3F" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+       style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir</a>
+  </div>
+</article><article data-card data-product="pomada cascavel 240g" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 group" style="background:#f7f6f2;border:1.5px solid #e8e5de;opacity:0;transform:translateY(20px)">
+  <div class="relative overflow-hidden" style="height:180px;background:#e8e5de">
+    <div class="w-full h-full flex flex-col items-center justify-center gap-2" style="color:#e8e5de"><div style="color:#e8e5de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-dasharray="3 3"/><path d="M12 6c0 0-5 3.5-5 7a5 5 0 0010 0c0-3.5-5-7-5-7z"/><path d="M12 13v5"/></svg></div><span class="text-xs font-medium" style="color:#e8e5de">Em breve</span></div>
+  </div>
+  <div class="flex flex-col flex-1 p-4 gap-3">
+    <h3 class="text-sm font-semibold leading-snug flex-1" style="color:#1a1a14">Pomada Cascavel 240g</h3>
+    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Pomada%20Cascavel%20240g.%20Podem%20me%20informar%20disponibilidade%20e%20pre%C3%A7o%3F" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+       style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir</a>
+  </div>
+</article><article data-card data-product="pomada sucuri 240g" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 group" style="background:#f7f6f2;border:1.5px solid #e8e5de;opacity:0;transform:translateY(20px)">
+  <div class="relative overflow-hidden" style="height:180px;background:#e8e5de">
+    <div class="w-full h-full flex flex-col items-center justify-center gap-2" style="color:#e8e5de"><div style="color:#e8e5de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-dasharray="3 3"/><path d="M12 6c0 0-5 3.5-5 7a5 5 0 0010 0c0-3.5-5-7-5-7z"/><path d="M12 13v5"/></svg></div><span class="text-xs font-medium" style="color:#e8e5de">Em breve</span></div>
+  </div>
+  <div class="flex flex-col flex-1 p-4 gap-3">
+    <h3 class="text-sm font-semibold leading-snug flex-1" style="color:#1a1a14">Pomada Sucuri 240g</h3>
+    <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%3A%20Pomada%20Sucuri%20240g.%20Podem%20me%20informar%20disponibilidade%20e%20pre%C3%A7o%3F" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200"
+       style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Pedir</a>
+  </div>
+</article></div>
+      <div id="empty" class="hidden py-20 text-center">
+        <p class="text-base font-semibold" style="color:#7a7269">Nenhum produto encontrado</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer style="background:#171712">
+  <div style="height:2px;background:linear-gradient(90deg,#728035,transparent 20%,#D4652E 50%,transparent 80%,#728035)"></div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <img src="logo.png" alt="Triângulo" class="h-9 w-auto brightness-0 invert opacity-90"/>
+          <span class="font-bold text-white">Triângulo<br/><span class="font-normal text-xs" style="color:#a8a299">Distribuidora</span></span>
+        </div>
+        <p class="text-sm leading-relaxed mb-6" style="color:#a8a299">Distribuindo saúde e bem-estar há anos. Produtos naturais de qualidade para toda a região do Triângulo Mineiro.</p>
+        <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Tri%C3%A2ngulo%20Distribuidora." target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-200"
+           style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> WhatsApp</a>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-5" style="color:#728035">Navegação</p>
+        <ul class="space-y-3"><li><a href="#inicio" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Início</a></li><li><a href="#sobre" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Sobre</a></li><li><a href="#beneficios" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Benefícios</a></li><li><a href="#marcas" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Marcas</a></li><li><a href="#contato" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Contato</a></li></ul>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-5" style="color:#D4652E">Marcas em Destaque</p>
+        <ul class="space-y-3"><li><a href="marca-4-elementos.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">4 Elementos</a></li><li><a href="marca-celliv.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Celliv</a></li><li><a href="marca-bioklein.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Bioklein</a></li><li><a href="marca-landerlabs.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Landerlabs</a></li><li><a href="marca-melfort.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Melfort</a></li><li><a href="marca-san-jully.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">San Jully</a></li></ul>
+        <a href="#marcas" class="inline-flex items-center gap-1 text-xs mt-4 transition-colors duration-200" style="color:#728035" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#728035'">Ver todas as marcas <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-5" style="color:#728035">Contato</p>
+        <address class="not-italic space-y-3">
+          <p class="text-sm" style="color:#a8a299">Alameda Eugênio Nasciute, 85<br/>Araguari – MG, CEP 38441-122</p>
+          <a href="tel:+5534991783994" class="text-sm font-semibold transition-colors duration-200" style="color:#ffffff" onmouseover="this.style.color='#728035'" onmouseout="this.style.color='#ffffff'">(34) 99178-3994</a>
+          <br/>
+          <a href="https://wa.me/5534991783994?text=Ol%C3%A1%21" target="_blank" rel="noopener" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">5534991783994</a>
+        </address>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-top:1px solid rgba(255,255,255,.07)">
+      <p class="text-xs" style="color:#6b6762">© 2025 Triângulo Distribuidora de Produtos Naturais. Todos os direitos reservados.</p>
+      <p class="text-xs" style="color:#6b6762">Araguari, Minas Gerais</p>
     </div>
   </div>
 </footer>
 <script>
 (function(){
-  var ham=document.getElementById('ham');
-  var mob=document.getElementById('mob-menu');
-  var mobSrhBtn=document.getElementById('mob-srh-btn');
-  var mobSrh=document.getElementById('mob-srh');
-  if(ham) ham.addEventListener('click',function(){mob.classList.toggle('hidden');if(mobSrh)mobSrh.classList.add('hidden');});
-  if(mobSrhBtn) mobSrhBtn.addEventListener('click',function(){mobSrh.classList.toggle('hidden');mob.classList.add('hidden');if(!mobSrh.classList.contains('hidden'))mobSrh.querySelector('input').focus();});
-  document.querySelectorAll('.mob-link').forEach(function(a){a.addEventListener('click',function(){mob.classList.add('hidden');});});
-  document.querySelectorAll('.snav').forEach(function(a){
-    a.addEventListener('mouseenter',function(){a.style.color='#728035';a.style.background='#f0f4e6';});
-    a.addEventListener('mouseleave',function(){if(!a.classList.contains('act')){a.style.color='#7a7269';a.style.background='';}});
+  var btn=document.getElementById('mob-menu-btn');
+  var menu=document.getElementById('mob-menu');
+  var lines=document.getElementById('mob-lines');
+  var x=document.getElementById('mob-x');
+  if(btn)btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('hidden');
+    if(lines)lines.classList.toggle('hidden',!open);
+    if(x)x.classList.toggle('hidden',open);
   });
+  var sbtn=document.getElementById('mob-srh-btn');
+  var srh=document.getElementById('mob-srh');
+  if(sbtn)sbtn.addEventListener('click',function(){srh&&srh.classList.toggle('hidden')});
 })();
 </script>
 <script>
 (function(){
-  document.querySelectorAll('[data-card]').forEach(function(el){
-    el.addEventListener('mouseenter',function(){el.style.boxShadow='0 4px 8px rgba(0,0,0,.05),0 18px 44px rgba(0,0,0,.13)';el.style.transform='translateY(-5px)';var img=el.querySelector('img');if(img)img.style.transform='scale(1.08)';});
-    el.addEventListener('mouseleave',function(){el.style.boxShadow='0 1px 3px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.06)';el.style.transform='';var img=el.querySelector('img');if(img)img.style.transform='';});
+  // card entrance
+  var cards=document.querySelectorAll('[data-card]');
+  var cardObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,idx){
+      if(e.isIntersecting){
+        var el=e.target;
+        setTimeout(function(){
+          el.style.transition='opacity .5s ease, transform .5s ease, box-shadow .2s';
+          el.style.opacity='1';
+          el.style.transform='translateY(0)';
+        },idx*60);
+        cardObs.unobserve(el);
+      }
+    });
+  },{threshold:.1});
+  cards.forEach(function(c){cardObs.observe(c);});
+  // hover
+  cards.forEach(function(c){
+    c.addEventListener('mouseenter',function(){this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.transform='translateY(-4px)';});
+    c.addEventListener('mouseleave',function(){this.style.boxShadow='none';this.style.transform='translateY(0)';});
   });
-  var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(!e.isIntersecting)return;e.target.querySelectorAll('[data-card]').forEach(function(c,i){setTimeout(function(){c.style.opacity='1';c.style.translate='0 0';},i*30);});revObs.unobserve(e.target);});},{threshold:.04});
-  document.querySelectorAll('[data-section]').forEach(function(s){revObs.observe(s);});
-  var qEl=document.getElementById('q'),clr=document.getElementById('clr'),empty=document.getElementById('empty'),emptyQ=document.getElementById('emptyQ'),main=document.getElementById('cat-main');
-  function runSearch(val){var q=val.toLowerCase().trim(),tot=0;document.querySelectorAll('[data-section]').forEach(function(sec){var n=0;sec.querySelectorAll('[data-card]').forEach(function(c){var ok=!q||c.dataset.product.includes(q);c.classList.toggle('hidden',!ok);if(ok)n++;});sec.classList.toggle('hidden',n===0);tot+=n;});var none=tot===0;if(empty){empty.classList.toggle('hidden',!none);empty.classList.toggle('flex',none);}if(main)main.classList.toggle('hidden',none);if(clr)clr.classList.toggle('hidden',!val.trim());if(emptyQ)emptyQ.textContent=val.trim()?'"'+val+'"':'';};
-  if(qEl){qEl.addEventListener('input',function(e){runSearch(e.target.value);});if(clr)clr.addEventListener('click',function(){qEl.value='';runSearch('');qEl.focus();});document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();qEl.focus();}if(e.key==='Escape')qEl.blur();});}
-})();
-</script>
-<script>
-(function(){
-  var obs=new IntersectionObserver(function(ent){ent.forEach(function(e){if(e.isIntersecting){e.target.style.transition='opacity .6s,transform .6s';e.target.style.opacity='1';e.target.style.transform='none';obs.unobserve(e.target);}});},{threshold:.05});
-  document.querySelectorAll('[data-anim]').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(24px)';obs.observe(el);});
+  // search filter
+  var qi=document.getElementById('q');
+  var empty=document.getElementById('empty');
+  function runSearch(term){
+    term=(term||'').toLowerCase().trim();
+    var sections=document.querySelectorAll('[data-brand-section]');
+    sections.forEach(function(sec){
+      var sCards=sec.querySelectorAll('[data-card]');
+      var vis=0;
+      sCards.forEach(function(c){
+        var match=!term||c.getAttribute('data-product').indexOf(term)>-1;
+        c.style.display=match?'':'none';
+        if(match)vis++;
+      });
+      sec.style.display=vis?'':'none';
+    });
+    if(empty)empty.style.display=document.querySelector('[data-brand-section]:not([style*="display: none"])')===null?'':'none';
+  }
+  if(qi){
+    qi.addEventListener('input',function(){runSearch(this.value);});
+    var params=new URLSearchParams(window.location.search);
+    var q=params.get('q');
+    if(q){qi.value=q;runSearch(q);}
+  }
+  var clrBtn=document.getElementById('clr-btn');
+  if(clrBtn&&qi){
+    qi.addEventListener('input',function(){clrBtn.style.display=this.value?'':'none';});
+    clrBtn.addEventListener('click',function(){qi.value='';qi.focus();runSearch('');this.style.display='none';});
+  }
 })();
 </script>
 </body>
