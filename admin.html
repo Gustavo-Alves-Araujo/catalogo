@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <title>Painel — Triângulo Distribuidora</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui']}}}}</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="catalogo.js"></script>
+  <style>
+    .campo{width:100%;padding:.6rem .8rem;border:1.5px solid #e8e5de;border-radius:.75rem;font-size:.875rem;background:#fff;color:#1a1a14;outline:none}
+    .campo:focus{border-color:#728035}
+    .rotulo{display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#7a7269;margin-bottom:.35rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.6rem 1.1rem;border-radius:9999px;font-size:.875rem;font-weight:700;cursor:pointer;border:none;transition:opacity .15s}
+    .btn:hover{opacity:.85}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+    .btn-1{background:#728035;color:#fff}
+    .btn-2{background:#fff;color:#7a7269;border:1.5px solid #e8e5de}
+    .btn-x{background:#fff;color:#C0392B;border:1.5px solid #f0d5d1}
+  </style>
+</head>
+<body style="background:#f7f6f2;color:#1a1a14;font-family:'Inter',sans-serif">
+
+<!-- ------------------------------------------------------------- LOGIN -->
+<div id="tela-login" class="min-h-screen flex items-center justify-center px-5">
+  <form id="form-login" class="w-full max-w-sm rounded-2xl p-8" style="background:#fff;border:1.5px solid #e8e5de">
+    <img src="logo.png" alt="Triângulo" class="h-10 w-auto mx-auto mb-6" onerror="this.style.display='none'"/>
+    <h1 class="text-xl font-black text-center mb-1">Painel do catálogo</h1>
+    <p class="text-sm text-center mb-6" style="color:#7a7269">Entre para gerenciar marcas e produtos.</p>
+    <label class="rotulo" for="senha">Senha</label>
+    <input id="senha" type="password" class="campo mb-4" autocomplete="current-password" required/>
+    <p id="erro-login" class="hidden text-sm mb-4 px-3 py-2 rounded-lg" style="background:#fdeceb;color:#C0392B"></p>
+    <button type="submit" id="btn-entrar" class="btn btn-1 w-full">Entrar</button>
+  </form>
+</div>
+
+<!-- ------------------------------------------------------------ PAINEL -->
+<div id="tela-painel" class="hidden">
+  <header class="sticky top-0 z-40 px-5 sm:px-8 py-3 flex items-center justify-between gap-4" style="background:rgba(255,255,255,.97);border-bottom:1px solid #e8e5de">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="" class="h-8 w-auto" onerror="this.style.display='none'"/>
+      <span class="text-sm font-bold">Painel do catálogo</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="index.html" target="_blank" rel="noopener" class="btn btn-2">Ver site</a>
+      <button id="btn-sair" class="btn btn-2">Sair</button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-5 sm:px-8 py-8 grid lg:grid-cols-[320px_1fr] gap-8 items-start">
+
+    <!-- coluna: marcas -->
+    <section class="rounded-2xl p-5" style="background:#fff;border:1.5px solid #e8e5de">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-base font-black">Marcas <span id="qtd-marcas" class="text-xs font-semibold" style="color:#7a7269"></span></h2>
+        <button id="btn-nova-marca" class="btn btn-1" style="padding:.4rem .8rem">+ Nova</button>
+      </div>
+      <input id="filtro-marcas" class="campo mb-3" placeholder="Filtrar marcas..."/>
+      <ul id="lista-marcas" class="flex flex-col gap-1 max-h-[65vh] overflow-y-auto -mx-1 px-1"></ul>
+    </section>
+
+    <!-- coluna: detalhe -->
+    <section id="detalhe" class="flex flex-col gap-6">
+      <div id="vazio-detalhe" class="rounded-2xl p-12 text-center" style="background:#fff;border:1.5px dashed #e8e5de;color:#7a7269">
+        Selecione uma marca à esquerda ou crie uma nova.
+      </div>
+
+      <!-- form da marca -->
+      <div id="bloco-marca" class="hidden rounded-2xl p-6" style="background:#fff;border:1.5px solid #e8e5de">
+        <h2 id="titulo-marca" class="text-lg font-black mb-5">Marca</h2>
+        <form id="form-marca" class="grid sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="rotulo" for="m-nome">Nome da marca</label>
+            <input id="m-nome" class="campo" required/>
+          </div>
+          <div>
+            <label class="rotulo" for="m-slug">Endereço da página (slug)</label>
+            <input id="m-slug" class="campo" required pattern="[a-z0-9\-]+"/>
+            <p class="text-xs mt-1" style="color:#7a7269">marca.html?m=<span id="preview-slug"></span></p>
+          </div>
+          <div>
+            <label class="rotulo" for="m-ordem">Ordem no site</label>
+            <input id="m-ordem" type="number" min="1" class="campo"/>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="rotulo" for="m-desc">Descrição (opcional)</label>
+            <textarea id="m-desc" rows="2" class="campo"></textarea>
+          </div>
+          <div class="sm:col-span-2 flex flex-wrap items-center gap-3 justify-between">
+            <label class="flex items-center gap-2 text-sm font-semibold cursor-pointer">
+              <input id="m-ativo" type="checkbox" class="w-4 h-4" checked/> Visível no site
+            </label>
+            <div class="flex gap-2">
+              <button type="button" id="btn-excluir-marca" class="btn btn-x">Excluir marca</button>
+              <button type="submit" id="btn-salvar-marca" class="btn btn-1">Salvar marca</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- produtos -->
+      <div id="bloco-produtos" class="hidden rounded-2xl p-6" style="background:#fff;border:1.5px solid #e8e5de">
+        <div class="flex items-center justify-between mb-5 gap-3 flex-wrap">
+          <h2 class="text-lg font-black">Produtos <span id="qtd-produtos" class="text-xs font-semibold" style="color:#7a7269"></span></h2>
+          <button id="btn-novo-produto" class="btn btn-1">+ Novo produto</button>
+        </div>
+        <div id="lista-produtos" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ---------------------------------------------------- MODAL DE PRODUTO -->
+<div id="modal" class="hidden fixed inset-0 z-50 items-center justify-center px-5" style="background:rgba(8,8,6,.55)">
+  <form id="form-produto" class="w-full max-w-lg rounded-2xl p-6 max-h-[90vh] overflow-y-auto" style="background:#fff">
+    <h2 id="titulo-produto" class="text-lg font-black mb-5">Produto</h2>
+    <div class="flex flex-col gap-4">
+      <div>
+        <label class="rotulo" for="p-nome">Nome do produto</label>
+        <input id="p-nome" class="campo" required/>
+      </div>
+      <div>
+        <label class="rotulo" for="p-desc">Descrição (opcional)</label>
+        <textarea id="p-desc" rows="2" class="campo"></textarea>
+      </div>
+      <div>
+        <label class="rotulo">Imagem</label>
+        <div class="flex items-center gap-4">
+          <div id="p-preview" class="w-24 h-24 shrink-0 rounded-xl flex items-center justify-center text-xs text-center" style="background:#f7f6f2;border:1.5px solid #e8e5de;color:#7a7269">sem<br/>imagem</div>
+          <div class="flex-1 flex flex-col gap-2">
+            <input id="p-arquivo" type="file" accept="image/*" class="text-sm"/>
+            <button type="button" id="btn-remover-imagem" class="btn btn-2" style="padding:.35rem .8rem;font-size:.75rem">Remover imagem</button>
+            <p class="text-xs" style="color:#7a7269">JPG, PNG ou WebP até 5 MB.</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="rotulo" for="p-ordem">Ordem</label>
+          <input id="p-ordem" type="number" min="1" class="campo"/>
+        </div>
+        <label class="flex items-end gap-2 text-sm font-semibold cursor-pointer pb-2">
+          <input id="p-ativo" type="checkbox" class="w-4 h-4" checked/> Visível no site
+        </label>
+      </div>
+      <p id="erro-produto" class="hidden text-sm px-3 py-2 rounded-lg" style="background:#fdeceb;color:#C0392B"></p>
+      <div class="flex justify-end gap-2 pt-1">
+        <button type="button" id="btn-cancelar-produto" class="btn btn-2">Cancelar</button>
+        <button type="submit" id="btn-salvar-produto" class="btn btn-1">Salvar produto</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="aviso" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] px-5 py-3 rounded-full text-sm font-semibold text-white shadow-lg"></div>
+
+<script>
+(function () {
+  'use strict';
+  var sb = Catalogo.sb, esc = Catalogo.esc;
+  var EMAIL_ADMIN = 'admin@triangulodistribuidora.com.br';
+
+  var marcas = [], marcaAtual = null, produtos = [], produtoEditando = null;
+  var imagemPendente = null;   // File escolhido mas ainda nao enviado
+  var imagemRemovida = false;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function aviso(texto, erro) {
+    var el = $('aviso');
+    el.textContent = texto;
+    el.style.background = erro ? '#C0392B' : '#728035';
+    el.classList.remove('hidden');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.add('hidden'); }, 3000);
+  }
+
+  function slugificar(texto) {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  /* ------------------------------------------------------------- sessao */
+
+  $('form-login').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = $('btn-entrar'), erro = $('erro-login');
+    btn.disabled = true; btn.textContent = 'Entrando...';
+    erro.classList.add('hidden');
+    var r = await sb.auth.signInWithPassword({ email: EMAIL_ADMIN, password: $('senha').value });
+    btn.disabled = false; btn.textContent = 'Entrar';
+    if (r.error) {
+      erro.textContent = 'Senha incorreta.';
+      erro.classList.remove('hidden');
+      return;
+    }
+    abrirPainel();
+  });
+
+  $('btn-sair').addEventListener('click', async function () {
+    await sb.auth.signOut();
+    location.reload();
+  });
+
+  async function abrirPainel() {
+    $('tela-login').classList.add('hidden');
+    $('tela-painel').classList.remove('hidden');
+    await carregarMarcas();
+  }
+
+  /* ------------------------------------------------------------- marcas */
+
+  async function carregarMarcas(selecionarId) {
+    var r = await sb.from('catalogo_marcas')
+      .select('id,slug,nome,descricao,logo_url,ordem,ativo,catalogo_produtos(id)')
+      .order('ordem');
+    if (r.error) return aviso('Erro ao carregar marcas: ' + r.error.message, true);
+    marcas = r.data;
+    desenharListaMarcas();
+    var alvo = selecionarId || (marcaAtual && marcaAtual.id);
+    var achada = marcas.filter(function (m) { return m.id === alvo; })[0];
+    if (achada) selecionarMarca(achada); else limparDetalhe();
+  }
+
+  function desenharListaMarcas() {
+    var termo = $('filtro-marcas').value.toLowerCase().trim();
+    var visiveis = marcas.filter(function (m) {
+      return !termo || m.nome.toLowerCase().indexOf(termo) > -1;
+    });
+    $('qtd-marcas').textContent = '(' + marcas.length + ')';
+    $('lista-marcas').innerHTML = visiveis.map(function (m) {
+      var ativa = marcaAtual && marcaAtual.id === m.id;
+      var cor = Catalogo.corDaMarca(m.ordem);
+      var qtd = (m.catalogo_produtos || []).length;
+      return '<li><button data-id="' + m.id + '" class="w-full text-left px-3 py-2.5 rounded-xl flex items-center gap-3 transition-colors" ' +
+        'style="background:' + (ativa ? cor + '15' : 'transparent') + '">' +
+        '<span class="w-1.5 h-8 rounded-full shrink-0" style="background:' + cor + (m.ativo ? '' : '40') + '"></span>' +
+        '<span class="flex-1 min-w-0">' +
+          '<span class="block text-sm font-bold truncate" style="color:' + (m.ativo ? '#1a1a14' : '#a5a09a') + '">' + esc(m.nome) + '</span>' +
+          '<span class="block text-xs" style="color:#7a7269">' + qtd + (qtd === 1 ? ' produto' : ' produtos') + (m.ativo ? '' : ' · oculta') + '</span>' +
+        '</span></button></li>';
+    }).join('') || '<li class="text-sm py-4 text-center" style="color:#7a7269">Nenhuma marca encontrada.</li>';
+
+    $('lista-marcas').querySelectorAll('button[data-id]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var m = marcas.filter(function (x) { return x.id === b.dataset.id; })[0];
+        if (m) selecionarMarca(m);
+      });
+    });
+  }
+
+  $('filtro-marcas').addEventListener('input', desenharListaMarcas);
+
+  function limparDetalhe() {
+    marcaAtual = null;
+    $('vazio-detalhe').classList.remove('hidden');
+    $('bloco-marca').classList.add('hidden');
+    $('bloco-produtos').classList.add('hidden');
+    desenharListaMarcas();
+  }
+
+  function selecionarMarca(m) {
+    marcaAtual = m;
+    $('vazio-detalhe').classList.add('hidden');
+    $('bloco-marca').classList.remove('hidden');
+    $('titulo-marca').textContent = m.id ? 'Editar marca' : 'Nova marca';
+    $('m-nome').value = m.nome || '';
+    $('m-slug').value = m.slug || '';
+    $('m-ordem').value = m.ordem || (marcas.length + 1);
+    $('m-desc').value = m.descricao || '';
+    $('m-ativo').checked = m.ativo !== false;
+    $('preview-slug').textContent = m.slug || '';
+    $('btn-excluir-marca').style.display = m.id ? '' : 'none';
+    desenharListaMarcas();
+    if (m.id) { $('bloco-produtos').classList.remove('hidden'); carregarProdutos(); }
+    else { $('bloco-produtos').classList.add('hidden'); }
+  }
+
+  $('btn-nova-marca').addEventListener('click', function () {
+    selecionarMarca({ nome: '', slug: '', ordem: marcas.length + 1, ativo: true });
+    $('m-nome').focus();
+  });
+
+  // slug segue o nome enquanto o usuario nao mexer nele manualmente
+  var slugManual = false;
+  $('m-slug').addEventListener('input', function () { slugManual = true; $('preview-slug').textContent = this.value; });
+  $('m-nome').addEventListener('input', function () {
+    if (marcaAtual && marcaAtual.id) return;
+    if (slugManual) return;
+    $('m-slug').value = slugificar(this.value);
+    $('preview-slug').textContent = $('m-slug').value;
+  });
+
+  $('form-marca').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = $('btn-salvar-marca');
+    btn.disabled = true; btn.textContent = 'Salvando...';
+    var dados = {
+      nome: $('m-nome').value.trim(),
+      slug: slugificar($('m-slug').value),
+      ordem: parseInt($('m-ordem').value, 10) || 0,
+      descricao: $('m-desc').value.trim() || null,
+      ativo: $('m-ativo').checked
+    };
+    var r = marcaAtual && marcaAtual.id
+      ? await sb.from('catalogo_marcas').update(dados).eq('id', marcaAtual.id).select().single()
+      : await sb.from('catalogo_marcas').insert(dados).select().single();
+    btn.disabled = false; btn.textContent = 'Salvar marca';
+    if (r.error) {
+      return aviso(r.error.code === '23505'
+        ? 'Já existe uma marca com esse slug.'
+        : 'Erro ao salvar: ' + r.error.message, true);
+    }
+    slugManual = false;
+    aviso('Marca salva.');
+    await carregarMarcas(r.data.id);
+  });
+
+  $('btn-excluir-marca').addEventListener('click', async function () {
+    if (!marcaAtual || !marcaAtual.id) return;
+    var qtd = produtos.length;
+    if (!confirm('Excluir a marca "' + marcaAtual.nome + '"' +
+        (qtd ? ' e seus ' + qtd + ' produtos' : '') + '? Isso não pode ser desfeito.')) return;
+    var r = await sb.from('catalogo_marcas').delete().eq('id', marcaAtual.id);
+    if (r.error) return aviso('Erro ao excluir: ' + r.error.message, true);
+    aviso('Marca excluída.');
+    marcaAtual = null;
+    await carregarMarcas();
+  });
+
+  /* ----------------------------------------------------------- produtos */
+
+  async function carregarProdutos() {
+    var r = await sb.from('catalogo_produtos')
+      .select('id,nome,descricao,imagem_url,ordem,ativo')
+      .eq('marca_id', marcaAtual.id).order('ordem');
+    if (r.error) return aviso('Erro ao carregar produtos: ' + r.error.message, true);
+    produtos = r.data;
+    $('qtd-produtos').textContent = '(' + produtos.length + ')';
+    $('lista-produtos').innerHTML = produtos.map(function (p) {
+      var media = p.imagem_url
+        ? '<img src="' + esc(p.imagem_url) + '" alt="" loading="lazy" class="w-16 h-16 rounded-lg object-contain shrink-0" style="background:#f7f6f2;padding:3px"/>'
+        : '<div class="w-16 h-16 rounded-lg shrink-0 flex items-center justify-center text-[10px] text-center" style="background:#f7f6f2;color:#a5a09a">sem<br/>imagem</div>';
+      return '<div class="flex items-center gap-3 p-3 rounded-xl" style="border:1.5px solid #e8e5de;' + (p.ativo ? '' : 'opacity:.55') + '">' +
+        media +
+        '<div class="flex-1 min-w-0">' +
+          '<p class="text-sm font-semibold leading-snug break-words">' + esc(p.nome) + '</p>' +
+          '<p class="text-xs" style="color:#7a7269">#' + p.ordem + (p.ativo ? '' : ' · oculto') + '</p>' +
+        '</div>' +
+        '<div class="flex flex-col gap-1 shrink-0">' +
+          '<button data-editar="' + p.id + '" class="btn btn-2" style="padding:.25rem .7rem;font-size:.7rem">Editar</button>' +
+          '<button data-excluir="' + p.id + '" class="btn btn-x" style="padding:.25rem .7rem;font-size:.7rem">Excluir</button>' +
+        '</div></div>';
+    }).join('') || '<p class="text-sm sm:col-span-2 xl:col-span-3 py-6 text-center" style="color:#7a7269">Nenhum produto ainda. Clique em “Novo produto”.</p>';
+
+    $('lista-produtos').querySelectorAll('[data-editar]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        abrirModal(produtos.filter(function (p) { return p.id === b.dataset.editar; })[0]);
+      });
+    });
+    $('lista-produtos').querySelectorAll('[data-excluir]').forEach(function (b) {
+      b.addEventListener('click', function () { excluirProduto(b.dataset.excluir); });
+    });
+  }
+
+  async function excluirProduto(id) {
+    var p = produtos.filter(function (x) { return x.id === id; })[0];
+    if (!p || !confirm('Excluir o produto "' + p.nome + '"?')) return;
+    var r = await sb.from('catalogo_produtos').delete().eq('id', id);
+    if (r.error) return aviso('Erro ao excluir: ' + r.error.message, true);
+    aviso('Produto excluído.');
+    await carregarProdutos();
+    await carregarMarcas(marcaAtual.id);
+  }
+
+  function abrirModal(p) {
+    produtoEditando = p || null;
+    imagemPendente = null;
+    imagemRemovida = false;
+    $('titulo-produto').textContent = p ? 'Editar produto' : 'Novo produto';
+    $('p-nome').value = p ? p.nome : '';
+    $('p-desc').value = (p && p.descricao) || '';
+    $('p-ordem').value = p ? p.ordem : (produtos.length + 1);
+    $('p-ativo').checked = p ? p.ativo !== false : true;
+    $('p-arquivo').value = '';
+    $('erro-produto').classList.add('hidden');
+    mostrarPreview(p ? p.imagem_url : null);
+    $('modal').classList.remove('hidden');
+    $('modal').classList.add('flex');
+    $('p-nome').focus();
+  }
+
+  function fecharModal() {
+    $('modal').classList.add('hidden');
+    $('modal').classList.remove('flex');
+    produtoEditando = null;
+    imagemPendente = null;
+  }
+
+  function mostrarPreview(url) {
+    var el = $('p-preview');
+    el.innerHTML = url
+      ? '<img src="' + esc(url) + '" alt="" class="w-full h-full object-contain rounded-xl" style="padding:4px"/>'
+      : 'sem<br/>imagem';
+  }
+
+  $('btn-novo-produto').addEventListener('click', function () { abrirModal(null); });
+  $('btn-cancelar-produto').addEventListener('click', fecharModal);
+  $('modal').addEventListener('click', function (e) { if (e.target === this) fecharModal(); });
+
+  $('p-arquivo').addEventListener('change', function () {
+    var f = this.files[0];
+    if (!f) return;
+    if (f.size > 5 * 1024 * 1024) {
+      this.value = '';
+      return aviso('Imagem maior que 5 MB.', true);
+    }
+    imagemPendente = f;
+    imagemRemovida = false;
+    mostrarPreview(URL.createObjectURL(f));
+  });
+
+  $('btn-remover-imagem').addEventListener('click', function () {
+    imagemPendente = null;
+    imagemRemovida = true;
+    $('p-arquivo').value = '';
+    mostrarPreview(null);
+  });
+
+  async function enviarImagem(arquivo) {
+    var ext = (arquivo.name.split('.').pop() || 'jpg').toLowerCase();
+    var caminho = 'produtos/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext;
+    var r = await sb.storage.from(Catalogo.BUCKET).upload(caminho, arquivo, {
+      cacheControl: '31536000', upsert: false, contentType: arquivo.type
+    });
+    if (r.error) throw r.error;
+    return Catalogo.urlPublica(caminho);
+  }
+
+  $('form-produto').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = $('btn-salvar-produto'), erro = $('erro-produto');
+    btn.disabled = true; btn.textContent = 'Salvando...';
+    erro.classList.add('hidden');
+    try {
+      var imagem = produtoEditando ? produtoEditando.imagem_url : null;
+      if (imagemRemovida) imagem = null;
+      if (imagemPendente) {
+        btn.textContent = 'Enviando imagem...';
+        imagem = await enviarImagem(imagemPendente);
+      }
+      var dados = {
+        marca_id: marcaAtual.id,
+        nome: $('p-nome').value.trim(),
+        descricao: $('p-desc').value.trim() || null,
+        imagem_url: imagem,
+        ordem: parseInt($('p-ordem').value, 10) || 0,
+        ativo: $('p-ativo').checked
+      };
+      var r = produtoEditando
+        ? await sb.from('catalogo_produtos').update(dados).eq('id', produtoEditando.id)
+        : await sb.from('catalogo_produtos').insert(dados);
+      if (r.error) throw r.error;
+      fecharModal();
+      aviso('Produto salvo.');
+      await carregarProdutos();
+      await carregarMarcas(marcaAtual.id);
+    } catch (ex) {
+      erro.textContent = 'Erro ao salvar: ' + (ex.message || ex);
+      erro.classList.remove('hidden');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Salvar produto';
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('modal').classList.contains('hidden')) fecharModal();
+  });
+
+  /* --------------------------------------------------------- inicializacao */
+  sb.auth.getSession().then(function (r) {
+    if (r.data.session) abrirPainel();
+  });
+})();
+</script>
+</body>
+</html>

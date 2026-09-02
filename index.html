@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui']}}}}</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="catalogo.js"></script>
 </head>
 <body style="background:#f7f6f2;color:#1a1a14;overflow-x:hidden;font-family:'Inter',sans-serif">
 <header id="site-hdr" class="fixed top-0 left-0 w-full z-50" style="background:rgba(255,255,255,.97);border-bottom:1px solid #e8e5de">
@@ -89,11 +91,11 @@
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
       <div data-anim="up" data-delay="0" class="text-center p-7 rounded-2xl opacity-0" style="background:#f0f4e6">
-        <div class="text-3xl font-black mb-1" style="color:#728035"><span data-count="35" data-suffix=""></span></div>
+        <div class="text-3xl font-black mb-1" style="color:#728035"><span id="conta-marcas" data-count="35" data-suffix=""></span></div>
         <div class="text-xs uppercase tracking-wider" style="color:#536028">Marcas</div>
       </div>
       <div data-anim="up" data-delay="80" class="text-center p-7 rounded-2xl opacity-0" style="background:#fdf0eb">
-        <div class="text-3xl font-black mb-1" style="color:#D4652E"><span data-count="186" data-suffix="+"></span></div>
+        <div class="text-3xl font-black mb-1" style="color:#D4652E"><span id="conta-produtos" data-count="186" data-suffix="+"></span></div>
         <div class="text-xs uppercase tracking-wider" style="color:#8B3D15">Produtos</div>
       </div>
       <div data-anim="up" data-delay="160" class="text-center p-7 rounded-2xl opacity-0" style="background:#f0f4e6">
@@ -196,573 +198,14 @@
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
       <div data-anim="up" class="opacity-0">
         <span class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background:#f0f4e6;color:#728035">Catálogo</span>
-        <h2 class="text-3xl sm:text-4xl font-black" style="color:#1a1a14">Nossas <em class="not-italic" style="color:#728035">35 marcas</em></h2>
+        <h2 class="text-3xl sm:text-4xl font-black" style="color:#1a1a14">Nossas <em class="not-italic" style="color:#728035"><span id="titulo-qtd-marcas">35</span> marcas</em></h2>
       </div>
       <a data-anim="up" data-delay="100" href="busca.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 opacity-0 shrink-0"
          style="background:#f0f4e6;color:#728035" onmouseover="this.style.background='#728035';this.style.color='white'" onmouseout="this.style.background='#f0f4e6';this.style.color='#728035'">
          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Buscar produtos</a>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"><a href="marca-4-elementos.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 01</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">4 Elementos</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">70 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1-a2f2wLlv1UFOWOvrxZam9Tn3Y49CzpT" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1odV96JZnbfJDsquK2K2AfYL8-fTQ5_JS" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1JE7V3a0F-i5Xl77XrS9xKUXNvAIQ8zRY" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1TItKvJriszvIh8HgTrorirQ6hJOjvGLC" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#72803515;color:#728035">+66</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-alquimia-industria.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 02</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Alquimia Industria</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-apinil.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 03</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Apinil</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">5 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1-TjpsWXB04MqhEGEXIjooevdG-AZ_421" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+4</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-atacado-ervas.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 04</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Atacado Ervas</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">3 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#8B5E3C15;color:#8B5E3C">+3</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-bella-oil.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 05</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Bella Oil</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#2D6A4F15;color:#2D6A4F">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-bio-instinto.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#C65D21'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#C65D21"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#C65D21"># 06</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Bio Instinto</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#C65D2115;color:#C65D21">8 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1q5PrfJE0UTv3GxraDtnso6SkgnK6vsTu" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#C65D2115;color:#C65D21">+7</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#C65D21;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-bio-instinto-18-ervas.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 07</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Bio Instinto / 18 Ervas</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/17_kIjDvw1TAxyom67hsQZnEqfB_x44ld" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-bioceutica.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 08</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Bioceutica</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-bioklein.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 09</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Bioklein</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">16 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1VF3sqFi70xRHJN-ntLKSNvkYhdMmu0Rz" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1VF3sqFi70xRHJN-ntLKSNvkYhdMmu0Rz" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1-1CNhEYgkclLuIgCGs04oiEWYLpqZl3X" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1AQlczGe9Zmi4gXdRFuuQncEQGMmPcwV7" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+12</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-celliv.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 10</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Celliv</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">9 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/18YFIC4nSJbkrNoxZ5KGmE9ythGYeKViP" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1VF3sqFi70xRHJN-ntLKSNvkYhdMmu0Rz" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1VF3sqFi70xRHJN-ntLKSNvkYhdMmu0Rz" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1VF3sqFi70xRHJN-ntLKSNvkYhdMmu0Rz" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#8B5E3C15;color:#8B5E3C">+5</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-demazon.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 11</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Demazon</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">3 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1CbuUkOTFqCKCXlbAt0dZteIT2UszMc2C" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1CbuUkOTFqCKCXlbAt0dZteIT2UszMc2C" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1WLe8oTR3Zqg8RP6h49CKL9Xq8dF-erzt" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-emporio-das-ervas.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#C65D21'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#C65D21"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#C65D21"># 12</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Empório das Ervas</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#C65D2115;color:#C65D21">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1hOaxVbWvdixKh49KYvJKq1TEW3l0eJya" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#C65D21;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-essencial.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 13</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Essencial</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#72803515;color:#728035">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-essencial-bio.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 14</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Essencial Bio</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">4 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1YPpZVEohF_0tmPTeXBPYVWArGtMisYz-" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+3</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-faramel.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 15</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Faramel</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+2</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-fito-nature.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 16</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Fito Nature</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/100zmNlZ7jpRAf1pj63WE5lJGC3lr9yOq" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1FQfKUGmdlQ-TsfMho5Lis60dD5-3ojvv" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-flora-7-ervas.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 17</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Flora 7 Ervas</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1uxL7FmJ_qlPkX3iPgWukVKQO83A9alcx" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#2D6A4F15;color:#2D6A4F">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-herbamix.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#C65D21'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#C65D21"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#C65D21"># 18</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Herbamix</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#C65D2115;color:#C65D21">5 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1d0I3T-pyC37EugNprkhHtjVsAuriDPW4" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1d0I3T-pyC37EugNprkhHtjVsAuriDPW4" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1zQhIa_DFSvZKcL0thnYaY3HfqsTi8YLG" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1zQhIa_DFSvZKcL0thnYaY3HfqsTi8YLG" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#C65D2115;color:#C65D21">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#C65D21;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-herbolab.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 19</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Herbolab</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">5 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1ToWGDRsOWWlXGZjMqf1jJbXdc7WjcIBc" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#72803515;color:#728035">+4</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-landerlabs.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 20</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Landerlabs</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">6 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1-nRVk3FBn7po5ER6QpTUg1a62OWlEjHH" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1SMwCmyxSYrZzCxpzCO9lvpPpJyRAWXfw" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1ziCoHQ34AIVV1HyxHYSKGS8puWVvp77b" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1C0FRUI6gOVL0CQSyev3W22d8d-5fssCk" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+2</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-lysapharma.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 21</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Lysapharma</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-matugen.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 22</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Matugen</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1uxL7FmJ_qlPkX3iPgWukVKQO83A9alcx" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1uxL7FmJ_qlPkX3iPgWukVKQO83A9alcx" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-mc-sales.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 23</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">MC Sales</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">4 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1q5PrfJE0UTv3GxraDtnso6SkgnK6vsTu" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1q5PrfJE0UTv3GxraDtnso6SkgnK6vsTu" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#2D6A4F15;color:#2D6A4F">+2</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-melfort.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#C65D21'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#C65D21"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#C65D21"># 24</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Melfort</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#C65D2115;color:#C65D21">8 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/18YFIC4nSJbkrNoxZ5KGmE9ythGYeKViP" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1LieiQUqTXGF2c6K_KuGNfH8ghkQuxx0N" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1JulBl-uclYZPhEXPvqkmLRA-I40dLWmn" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1UMe3BMF4kyKxvrx8GXdLDzDFMRIFVaLa" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#C65D2115;color:#C65D21">+4</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#C65D21;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-multinature.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 25</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Multinature</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">4 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#72803515;color:#728035">+4</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-natti-vida.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 26</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Natti Vida</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-natural-ervas.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 27</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Natural Ervas</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-nutribel.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 28</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Nutribel</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1uxL7FmJ_qlPkX3iPgWukVKQO83A9alcx" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-perfeita-alquimia.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 29</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Perfeita Alquimia</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#2D6A4F15;color:#2D6A4F">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-san-jully.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#C65D21'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#C65D21"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#C65D21"># 30</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">San Jully</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#C65D2115;color:#C65D21">6 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1-pYkPkAlOAMRckOUWUbs8upb1toXw1hU" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/17_kIjDvw1TAxyom67hsQZnEqfB_x44ld" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1q5PrfJE0UTv3GxraDtnso6SkgnK6vsTu" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#C65D2115;color:#C65D21">+3</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#C65D21;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-saude-e-vida.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#728035'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#728035"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#728035"># 31</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Saúde e Vida</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#72803515;color:#728035">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#72803515;color:#728035">+2</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#728035;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-sem-mix-herbamix.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#D4652E'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#D4652E"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#D4652E"># 32</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Sem Mix / Herbamix</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#D4652E15;color:#D4652E">3 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#D4652E15;color:#D4652E">+3</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#D4652E;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-soul.html" data-anim="up" data-delay="160" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#536028'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#536028"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#536028"># 33</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Soul</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#53602815;color:#536028">2 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#53602815;color:#536028">+2</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#536028;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-vinagre-organico-sao-francisco.html" data-anim="up" data-delay="0" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#8B5E3C'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#8B5E3C"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#8B5E3C"># 34</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Vinagre Orgânico São Francisco</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#8B5E3C15;color:#8B5E3C">1 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#8B5E3C15;color:#8B5E3C">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#8B5E3C;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a><a href="marca-vitale-industria.html" data-anim="up" data-delay="80" class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 opacity-0 group"
-     style="background:#ffffff;border:1.5px solid #e8e5de"
-     onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.10)';this.style.borderColor='#2D6A4F'"
-     onmouseout="this.style.boxShadow='none';this.style.borderColor='#e8e5de'">
-  <div class="h-1" style="background:#2D6A4F"></div>
-  <div class="p-5 flex flex-col gap-4 flex-1">
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest" style="color:#2D6A4F"># 35</span>
-        <h3 class="text-base font-bold mt-0.5 leading-snug" style="color:#1a1a14">Vitale Industria</h3>
-      </div>
-      <span class="shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#2D6A4F15;color:#2D6A4F">3 prod.</span>
-    </div>
-    <div class="flex flex-wrap gap-2"><img src="https://lh3.googleusercontent.com/d/1GMD82kbWLoyFQRuT_-WO4FDX9qIkS47Y" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><img src="https://lh3.googleusercontent.com/d/1zQhIa_DFSvZKcL0thnYaY3HfqsTi8YLG" alt="" loading="lazy" class="w-12 h-12 rounded-lg object-contain" style="background:#f7f6f2;padding:4px"/><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xs font-bold" style="background:#2D6A4F15;color:#2D6A4F">+1</div></div>
-    <div class="mt-auto pt-3 flex items-center gap-1 text-xs font-semibold transition-colors duration-200" style="color:#2D6A4F;border-top:1px solid #e8e5de">Ver produtos <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-  </div>
-</a></div>
+    <div id="grade-marcas" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <p id="grade-aviso" class="text-sm py-10 text-center" style="color:#7a7269">Carregando marcas...</p>
   </div>
 </section>
 <section class="py-20 sm:py-28" style="background:#f7f6f2">
@@ -814,7 +257,7 @@
            class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white transition-all duration-200 opacity-0"
            style="background:#728035" onmouseover="this.style.background='#D4652E'" onmouseout="this.style.background='#728035'"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L0 24l6.305-1.534A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.213-3.732.978.997-3.645-.234-.374A9.818 9.818 0 1112 21.818z"/></svg> Tirar dúvida</a>
       </div>
-      <div><div class="faq-item" style="border-bottom:1px solid #e8e5de">
+      <div data-anim="up" data-delay="120"><div class="faq-item" style="border-bottom:1px solid #e8e5de">
   <button class="faq-btn w-full flex items-center justify-between gap-4 py-5 text-left" style="color:#1a1a14">
     <span class="text-sm font-semibold">Como faço meu pedido?</span>
     <span class="faq-icon shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 text-white text-lg font-bold leading-none" style="background:#728035">+</span>
@@ -927,7 +370,7 @@
       </div>
       <div>
         <p class="text-xs font-semibold uppercase tracking-widest mb-5" style="color:#D4652E">Marcas em Destaque</p>
-        <ul class="space-y-3"><li><a href="marca-4-elementos.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">4 Elementos</a></li><li><a href="marca-celliv.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Celliv</a></li><li><a href="marca-bioklein.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Bioklein</a></li><li><a href="marca-landerlabs.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Landerlabs</a></li><li><a href="marca-melfort.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Melfort</a></li><li><a href="marca-san-jully.html" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">San Jully</a></li></ul>
+        <ul class="space-y-3"><li><a href="marca.html?m=4-elementos" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">4 Elementos</a></li><li><a href="marca.html?m=celliv" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Celliv</a></li><li><a href="marca.html?m=bioklein" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Bioklein</a></li><li><a href="marca.html?m=landerlabs" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Landerlabs</a></li><li><a href="marca.html?m=melfort" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">Melfort</a></li><li><a href="marca.html?m=san-jully" class="text-sm transition-colors duration-200" style="color:#a8a299" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#a8a299'">San Jully</a></li></ul>
         <a href="#marcas" class="inline-flex items-center gap-1 text-xs mt-4 transition-colors duration-200" style="color:#728035" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#728035'">Ver todas as marcas <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
       <div>
@@ -965,6 +408,14 @@
 <script>
 (function(){
   // entrance animations
+  // filhos com .opacity-0 e sem data-anim proprio sobem junto com o pai animado
+  function reveal(root){
+    root.querySelectorAll('.opacity-0').forEach(function(c){
+      if(c.hasAttribute('data-anim'))return;
+      c.style.transition='opacity .6s ease';
+      c.style.opacity='1';
+    });
+  }
   var elems=document.querySelectorAll('[data-anim]');
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -976,6 +427,7 @@
           el.style.transition='opacity .6s ease, transform .6s ease';
           el.style.opacity='1';
           el.style.transform='none';
+          reveal(el);
         },delay);
         obs.unobserve(el);
       }
@@ -988,6 +440,11 @@
     else if(dir==='right')el.style.transform='translateX(30px)';
     else if(dir==='scale')el.style.transform='scale(.95)';
     obs.observe(el);
+  });
+  // rede de seguranca: .opacity-0 sem nenhum ancestral animado nunca apareceria
+  document.querySelectorAll('.opacity-0').forEach(function(c){
+    if(c.hasAttribute('data-anim')||c.closest('[data-anim]'))return;
+    c.style.opacity='1';
   });
   // parallax
   var bgw=document.getElementById('bgw');
@@ -1059,6 +516,51 @@
         if(icon){icon.style.transform='rotate(45deg)';}
       }
     });
+  });
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+  var grade = document.getElementById('grade-marcas');
+  var aviso = document.getElementById('grade-aviso');
+
+  function ajustaContador(id, valor) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute('data-count', valor);
+    // se a animacao ja rodou, o texto ja esta preenchido: corrige direto
+    if (el.textContent.trim()) el.textContent = valor + (el.getAttribute('data-suffix') || '');
+  }
+
+  Catalogo.marcasComProdutos().then(function (marcas) {
+    aviso.remove();
+    grade.innerHTML = marcas.map(function (m, i) { return Catalogo.cardMarca(m, i); }).join('');
+    // os cards entram com a mesma animacao das outras secoes
+    grade.querySelectorAll('[data-anim]').forEach(function (el) {
+      el.style.transform = 'translateY(30px)';
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          setTimeout(function () {
+            el.style.transition = 'opacity .6s ease, transform .6s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          }, parseInt(el.getAttribute('data-delay') || 0, 10));
+          obs.unobserve(el);
+        });
+      }, { threshold: .15 });
+      obs.observe(el);
+    });
+
+    var totalProdutos = marcas.reduce(function (n, m) { return n + m.produtos.length; }, 0);
+    var t = document.getElementById('titulo-qtd-marcas');
+    if (t) t.textContent = marcas.length;
+    ajustaContador('conta-marcas', marcas.length);
+    ajustaContador('conta-produtos', totalProdutos);
+  }).catch(function (e) {
+    aviso.textContent = 'Não foi possível carregar as marcas. Recarregue a página.';
+    console.error(e);
   });
 })();
 </script>
