@@ -125,6 +125,11 @@
         <input id="p-nome" class="campo" required/>
       </div>
       <div>
+        <label class="rotulo" for="p-marca">Marca</label>
+        <select id="p-marca" class="campo"></select>
+        <p id="p-marca-aviso" class="hidden text-xs mt-1 font-semibold" style="color:#C65D21"></p>
+      </div>
+      <div>
         <label class="rotulo" for="p-desc">Descrição (opcional)</label>
         <textarea id="p-desc" rows="2" class="campo"></textarea>
       </div>
@@ -378,6 +383,36 @@
     await carregarMarcas(marcaAtual.id);
   }
 
+  // O seletor permite mover o produto para outra marca ao salvar.
+  function montarSeletorDeMarca() {
+    var sel = $('p-marca');
+    sel.innerHTML = marcas.map(function (m) {
+      return '<option value="' + m.id + '">' + esc(m.nome) + (m.ativo ? '' : ' (oculta)') + '</option>';
+    }).join('');
+    sel.value = marcaAtual.id;
+    avisarTroca();
+  }
+
+  function marcaPorId(id) {
+    return marcas.filter(function (m) { return m.id === id; })[0];
+  }
+
+  function avisarTroca() {
+    var destinoId = $('p-marca').value;
+    var av = $('p-marca-aviso');
+    if (destinoId === marcaAtual.id) {
+      av.classList.add('hidden');
+      return;
+    }
+    var destino = marcaPorId(destinoId);
+    av.textContent = 'Ao salvar, o produto sai de "' + marcaAtual.nome + '" e vai para "' + destino.nome + '".';
+    av.classList.remove('hidden');
+    // a ordem antiga nao vale na marca nova: joga para o fim da lista de destino
+    $('p-ordem').value = (destino.catalogo_produtos || []).length + 1;
+  }
+
+  $('p-marca').addEventListener('change', avisarTroca);
+
   function abrirModal(p) {
     produtoEditando = p || null;
     imagemPendente = null;
@@ -389,6 +424,7 @@
     $('p-ativo').checked = p ? p.ativo !== false : true;
     $('p-arquivo').value = '';
     $('erro-produto').classList.add('hidden');
+    montarSeletorDeMarca();
     mostrarPreview(p ? p.imagem_url : null);
     $('modal').classList.remove('hidden');
     $('modal').classList.add('flex');
@@ -454,8 +490,10 @@
         btn.textContent = 'Enviando imagem...';
         imagem = await enviarImagem(imagemPendente);
       }
+      var destinoId = $('p-marca').value || marcaAtual.id;
+      var mudouDeMarca = destinoId !== marcaAtual.id;
       var dados = {
-        marca_id: marcaAtual.id,
+        marca_id: destinoId,
         nome: $('p-nome').value.trim(),
         descricao: $('p-desc').value.trim() || null,
         imagem_url: imagem,
@@ -466,8 +504,9 @@
         ? await sb.from('catalogo_produtos').update(dados).eq('id', produtoEditando.id)
         : await sb.from('catalogo_produtos').insert(dados);
       if (r.error) throw r.error;
+      var nomeDestino = mudouDeMarca ? marcaPorId(destinoId).nome : null;
       fecharModal();
-      aviso('Produto salvo.');
+      aviso(mudouDeMarca ? 'Produto movido para "' + nomeDestino + '".' : 'Produto salvo.');
       await carregarProdutos();
       await carregarMarcas(marcaAtual.id);
     } catch (ex) {
